@@ -16,7 +16,6 @@ public class App extends Application {
         // sceneManager.addScene(SceneName.NOME_TELA);
         // ...
 
-        sceneManager.displayMainScene();
         stage.setTitle("Unimob");
         stage.setMinWidth(250);
         stage.setMinHeight(250);

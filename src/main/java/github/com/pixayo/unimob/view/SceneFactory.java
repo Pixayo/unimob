@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * Fábrica responsável pela instanciação de novas telas da aplicação.
  */
-public class SceneFactory {
+class SceneFactory {
 
     /**
      * Cria e configura uma nova cena com base na tela especificada.
@@ -28,7 +28,7 @@ public class SceneFactory {
      * se houver falha no carregamento do arquivo ou {@code sceneName} é nulo.
      * @see SceneName
      */
-    public static Scene createScene(SceneName sceneName) {
+    static Scene createScene(SceneName sceneName) {
         String filename = sceneName.getFilename();
 
         try {
