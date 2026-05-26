@@ -30,13 +30,15 @@ class SceneFactory {
      */
     static Scene createScene(SceneName sceneName) {
         String filename = sceneName.getFilename();
+        String stylesheet = "style.css";
 
         try {
             FXMLLoader loader = new FXMLLoader(SceneFactory.class.getResource(filename));
+            String stylePath = SceneFactory.class.getResource(stylesheet).toExternalForm();
             Region root = loader.load();
 
             Scene scene = new Scene(root);
-            // TODO: Aplicar estilo css global
+            scene.getStylesheets().add(stylePath);
 
             return scene;
 
