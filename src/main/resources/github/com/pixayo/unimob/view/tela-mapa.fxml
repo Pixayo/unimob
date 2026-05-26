@@ -5,16 +5,84 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
 
 <!-- TODO: Em construção!!! -->
 
 <StackPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="github.com.pixayo.unimob.controller.TelaMapaController"
-            prefHeight="400.0" prefWidth="600.0">
+           xmlns:fx="http://javafx.com/fxml"
+           fx:controller="github.com.pixayo.unimob.controller.TelaMapaController"
+           prefHeight="640.0" prefWidth="360.0">
 
     <VBox>
-        <Label>Em construção!!!</Label>
+        <HBox fx:id="header"
+              minHeight="26.0"
+              alignment="TOP_CENTER">
+            <Label>Cabeçalho da tela</Label>
+        </HBox>
+
+        <VBox fx:id="main"
+                alignment="TOP_CENTER"
+                VBox.vgrow="ALWAYS">
+            <Label>corpo da tela</Label>
+        </VBox>
+
+        <HBox fx:id="footer"
+                prefHeight="60.0">
+            <Button HBox.hgrow="ALWAYS"
+                    prefWidth="0"
+                    maxHeight="999.0"
+                    maxWidth="999.0"
+                    contentDisplay="TOP">
+                <graphic>
+                    <ImageView fx:id="MAPA_ICON"
+                            fitHeight="16.0"
+                            fitWidth="16.0"
+                            preserveRatio="true"/>
+                </graphic>
+                Mapa
+            </Button>
+            <Button HBox.hgrow="ALWAYS"
+                    prefWidth="0"
+                    maxHeight="999.0"
+                    maxWidth="999.0"
+                    contentDisplay="TOP">
+                <graphic>
+                    <ImageView fx:id="HORARIOS_ICON"
+                               fitHeight="16.0"
+                               fitWidth="16.0"
+                               preserveRatio="true"/>
+                </graphic>
+                Horários
+            </Button>
+            <Button HBox.hgrow="ALWAYS"
+                    prefWidth="0"
+                    maxHeight="999.0"
+                    maxWidth="999.0"
+                    contentDisplay="TOP">
+                <graphic>
+                    <ImageView fx:id="FAVORITOS_ICON"
+                               fitHeight="16.0"
+                               fitWidth="16.0"
+                               preserveRatio="true"/>
+                </graphic>
+                Favoritos
+            </Button>
+            <Button HBox.hgrow="ALWAYS"
+                    prefWidth="0"
+                    maxHeight="999.0"
+                    maxWidth="999.0"
+                    contentDisplay="TOP">
+                <graphic>
+                    <ImageView fx:id="MAIS_ICON"
+                               fitHeight="16.0"
+                               fitWidth="16.0"
+                               preserveRatio="true"/>
+                </graphic>
+                Mais
+            </Button>
+        </HBox>
+
     </VBox>
 
 </StackPane>
