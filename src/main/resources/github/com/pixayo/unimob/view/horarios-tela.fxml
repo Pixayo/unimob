@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<StackPane prefHeight="640.0" prefWidth="360.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.com.pixayo.unimob.controller.TelaHorariosController">
+
+    <VBox>
+        <HBox fx:id="header" alignment="CENTER" minHeight="56.0" style="-fx-background-color: #155E9E;">
+            <padding>
+                <Insets left="16.0" right="16.0" />
+            </padding>
+            <Region HBox.hgrow="ALWAYS" />
+            <Label text="Horários" textFill="WHITE">
+                <font>
+                    <Font size="18.0" />
+                </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <ImageView fx:id="SEARCH_ICON" fitHeight="24.0" fitWidth="24.0" preserveRatio="true" />
+        </HBox>
+
+        <VBox fx:id="main" VBox.vgrow="ALWAYS">
+
+            <ScrollPane hbarPolicy="NEVER" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-padding: 0;" vbarPolicy="NEVER">
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <padding>
+                        <Insets bottom="12.0" left="16.0" right="16.0" top="12.0" />
+                    </padding>
+                    <Button style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 8 12;" text="Urbi Mobilidade" />
+                    <Button style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 8 12;" text="Viação Pioneira" />
+                    <Button style="-fx-background-color: white; -fx-border-color: #E0E0E0; -fx-border-radius: 8; -fx-background-radius: 8; -fx-padding: 8 12;" text="Viação Piracicabana" />
+                </HBox>
+            </ScrollPane>
+
+            <ScrollPane fitToWidth="true" hbarPolicy="NEVER" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-padding: 0;" VBox.vgrow="ALWAYS">
+                <VBox spacing="0">
+
+                    <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-border-color: #EEEEEE; -fx-border-width: 0 0 1 0; -fx-padding: 16;">
+                        <HBox alignment="CENTER_LEFT" style="-fx-background-color: #F0F0F0; -fx-background-radius: 4;">
+                            <Rectangle arcHeight="4.0" arcWidth="4.0" fill="#A8D030" height="36.0" width="4.0" />
+                            <HBox alignment="CENTER" spacing="6.0" style="-fx-padding: 0 8 0 8;">
+                                <ImageView fx:id="BUS_ICON_1" fitHeight="16.0" fitWidth="16.0" preserveRatio="true" />
+                                <Label style="-fx-font-weight: bold; -fx-text-fill: #333333;" text="0.005" />
+                            </HBox>
+                        </HBox>
+                        <Label maxWidth="Infinity" style="-fx-text-fill: #444444;" text="Circular Vicente Pires" wrapText="true" HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER_RIGHT" spacing="16.0">
+                            <ImageView fx:id="MAP_ICON_1" fitHeight="24.0" fitWidth="24.0" preserveRatio="true" />
+                            <ImageView fx:id="BOOKMARK_ICON_1" fitHeight="24.0" fitWidth="24.0" preserveRatio="true" />
+                        </HBox>
+                    </HBox>
+
+                    <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-border-color: #EEEEEE; -fx-border-width: 0 0 1 0; -fx-padding: 16;">
+                        <HBox alignment="CENTER_LEFT" style="-fx-background-color: #F0F0F0; -fx-background-radius: 4;">
+                            <Rectangle arcHeight="4.0" arcWidth="4.0" fill="#4B8C46" height="36.0" width="4.0" />
+                            <HBox alignment="CENTER" spacing="6.0" style="-fx-padding: 0 8 0 8;">
+                                <ImageView fx:id="BUS_ICON_2" fitHeight="16.0" fitWidth="16.0" preserveRatio="true" />
+                                <Label style="-fx-font-weight: bold; -fx-text-fill: #333333;" text="0.006" />
+                            </HBox>
+                        </HBox>
+                        <Label maxWidth="Infinity" style="-fx-text-fill: #444444;" text="W3 Sul / Sudoeste / Octogonal / Cruzeiro" wrapText="true" HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER_RIGHT" spacing="16.0">
+                            <ImageView fx:id="MAP_ICON_2" fitHeight="24.0" fitWidth="24.0" preserveRatio="true" />
+                            <ImageView fx:id="BOOKMARK_ICON_2" fitHeight="24.0" fitWidth="24.0" preserveRatio="true" />
+                        </HBox>
+                    </HBox>
+
+                    <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-border-color: #EEEEEE; -fx-border-width: 0 0 1 0; -fx-padding: 16;">
+                        <HBox alignment="CENTER_LEFT" style="-fx-background-color: #F0F0F0; -fx-background-radius: 4;">
+                            <Rectangle arcHeight="4.0" arcWidth="4.0" fill="#F49C1C" height="36.0" width="4.0" />
+                            <HBox alignment="CENTER" spacing="6.0" style="-fx-padding: 0 8 0 8;">
+                                <ImageView fx:id="BUS_ICON_3" fitHeight="16.0" fitWidth="16.0" preserveRatio="true" />
+                                <Label style="-fx-font-weight: bold; -fx-text-fill: #333333;" text="0.008" />
+                            </HBox>
+                        </HBox>
+                        <Label maxWidth="Infinity" style="-fx-text-fill: #444444;" text="Circular Águas Claras" wrapText="true" HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER_RIGHT" spacing="16.0">
+                            <ImageView fx:id="MAP_ICON_3" fitHeight="24.0" fitWidth="24.0" preserveRatio="true" />
+                            <ImageView fx:id="BOOKMARK_ICON_3" fitHeight="24.0" fitWidth="24.0" preserveRatio="true" />
+                        </HBox>
+                    </HBox>
+
+                    <HBox alignment="CENTER_LEFT" spacing="12.0" style="-fx-border-color: #EEEEEE; -fx-border-width: 0 0 1 0; -fx-padding: 16;">
+                        <HBox alignment="CENTER_LEFT" style="-fx-background-color: #F0F0F0; -fx-background-radius: 4;">
+                            <Rectangle arcHeight="4.0" arcWidth="4.0" fill="#F4D03F" height="36.0" width="4.0" />
+                            <HBox alignment="CENTER" spacing="6.0" style="-fx-padding: 0 8 0 8;">
+                                <ImageView fx:id="BUS_ICON_4" fitHeight="16.0" fitWidth="16.0" preserveRatio="true" />
+                                <Label style="-fx-font-weight: bold; -fx-text-fill: #333333;" text="0.011" />
+                            </HBox>
+                        </HBox>
+                        <Label maxWidth="Infinity" style="-fx-text-fill: #444444;" text="L2 Norte / Aeroporto (via Esplanada / Eixo Sul)" wrapText="true" HBox.hgrow="ALWAYS" />
+                        <HBox alignment="CENTER_RIGHT" spacing="16.0">
+                            <ImageView fx:id="MAP_ICON_4" fitHeight="24.0" fitWidth="24.0" preserveRatio="true" />
+                            <ImageView fx:id="BOOKMARK_ICON_4" fitHeight="24.0" fitWidth="24.0" preserveRatio="true" />
+                        </HBox>
+                    </HBox>
+
+                </VBox>
+            </ScrollPane>
+        </VBox>
+
+        <HBox fx:id="footer" prefHeight="60.0" style="-fx-background-color: #155E9E;">
+            <Button contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" onAction="#handleAbrirHome" prefWidth="0" style="-fx-background-color: transparent;" textFill="#9CBCE0" HBox.hgrow="ALWAYS">
+                <graphic>
+                    <ImageView fx:id="HOME_ICON" fitHeight="20.0" fitWidth="20.0" preserveRatio="true" />
+                </graphic>
+                Home
+            </Button>
+            <Button contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" onAction="#handleAbrirMais" prefWidth="0" style="-fx-background-color: transparent; -fx-border-color: white; -fx-border-width: 0 0 3 0;" text="Horários" textFill="WHITE" HBox.hgrow="ALWAYS">
+                <graphic>
+                    <ImageView fx:id="HORARIOS_ICON" fitHeight="20.0" fitWidth="20.0" preserveRatio="true" />
+                </graphic>
+                Horários
+            </Button>
+            <Button contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" onAction="#handleAbrirFavoritos" prefWidth="0" style="-fx-background-color: transparent;" textFill="#9CBCE0" HBox.hgrow="ALWAYS">
+                <graphic>
+                    <ImageView fx:id="FAVORITOS_ICON" fitHeight="20.0" fitWidth="20.0" preserveRatio="true" />
+                </graphic>
+                Favoritos
+            </Button>
+            <Button contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" onAction="#handleAbrirMais" prefWidth="0" style="-fx-background-color: transparent;" textFill="#9CBCE0" HBox.hgrow="ALWAYS">
+                <graphic>
+                    <ImageView fx:id="MAIS_ICON" fitHeight="20.0" fitWidth="20.0" preserveRatio="true" />
+                </graphic>
+                Mais
+            </Button>
+        </HBox>
+
+    </VBox>
+
+</StackPane>
