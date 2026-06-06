@@ -32,6 +32,7 @@ public class SceneManager {
     public SceneManager(Stage stage, SceneName mainScene) {
         this.stage = stage;
         this.mainScene = mainScene;
+        addScene(mainScene);
         displayScene(mainScene);
     }
 
@@ -50,10 +51,6 @@ public class SceneManager {
         return true;
     }
 
-    public boolean displayMainScene() {
-        return displayScene(mainScene);
-    }
-
     public boolean displayPreviousScene() {
         if (previousScenes.isEmpty()) {
             return false;
@@ -67,7 +64,7 @@ public class SceneManager {
             return false;
         }
 
-        scenes.put(name, SceneFactory.createScene(name));
+        scenes.put(name, SceneFactory.createScene(name, this));
         return true;
     }
 }

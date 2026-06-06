@@ -1,11 +1,13 @@
 package github.com.pixayo.unimob.view;
 
+import github.com.pixayo.unimob.controller.BaseController;
 import github.com.pixayo.unimob.model.SceneName;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 
 import java.io.IOException;
+import java.util.Objects;
 
 /**
  * Fábrica responsável pela instanciação de novas telas da aplicação.
@@ -28,22 +30,26 @@ class SceneFactory {
      * se houver falha no carregamento do arquivo ou {@code sceneName} é nulo.
      * @see SceneName
      */
-    static Scene createScene(SceneName sceneName) {
+    static Scene createScene(SceneName sceneName, SceneManager sceneManager) {
         String filename = sceneName.getFilename();
-        String stylesheet = "style.css";
+        String stylesheet = "css/style.css";
 
         try {
             FXMLLoader loader = new FXMLLoader(SceneFactory.class.getResource(filename));
-            String stylePath = SceneFactory.class.getResource(stylesheet).toExternalForm();
+            String stylePath = Objects.requireNonNull(SceneFactory.class.getResource(stylesheet)).toExternalForm();
             Region root = loader.load();
 
             Scene scene = new Scene(root);
             scene.getStylesheets().add(stylePath);
 
+            if (loader.getController() instanceof BaseController) {
+                ((BaseController) loader.getController()).setSceneManager(sceneManager);
+            }
+
             return scene;
 
         } catch (IOException e) {
-            throw new RuntimeException("SCENE FACTORY: " + filename, e);
+            throw new RuntimeException("Erro ao carregar a cena: " + filename, e);
         }
     }
 }
