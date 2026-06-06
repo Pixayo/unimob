@@ -11,7 +11,8 @@ import github.com.pixayo.unimob.view.SceneManager;
  * @see SceneManager
  */
 public enum SceneName {
-    TELA_MAPA("tela-mapa.fxml");
+    TELA_MAPA("tela-mapa.fxml"),
+    TELA_HORARIOS("tela-horarios.fxml");
 
     private final String filename;
 

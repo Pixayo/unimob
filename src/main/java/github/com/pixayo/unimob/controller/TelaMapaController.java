@@ -1,5 +1,13 @@
 package github.com.pixayo.unimob.controller;
 
-public class TelaMapaController {
-    // TODO
+import github.com.pixayo.unimob.model.SceneName;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+
+public class TelaMapaController extends BaseController {
+
+    @FXML
+    private void abrirTelaHorarios(ActionEvent actionEvent) {
+        sceneManager.displayScene(SceneName.TELA_HORARIOS);
+    }
 }

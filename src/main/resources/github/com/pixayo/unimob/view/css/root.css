@@ -1,0 +1,16 @@
+.root {
+    -bg1: #175898;
+    -bg2: #2F69A3;
+    -bg3: #5D8BB7;
+    -fg1: #FFF;
+    -fg2: #F1F1F1;
+    -fg3: #E0E0E0;
+
+    -icon-light: #2A2A2A; /* Icones em fundo claro */
+    -icon-dark: #DEDEDE;  /* Icones em fundo escuro */
+
+    -text-light: #1A1A1A;
+    -text-dark: #EAEAEA;
+
+    -text-mute: #5A5A5A;
+}

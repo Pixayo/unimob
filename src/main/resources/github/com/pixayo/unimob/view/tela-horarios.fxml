@@ -8,19 +8,20 @@
 
 <StackPane xmlns="http://javafx.com/javafx"
            xmlns:fx="http://javafx.com/fxml"
-           fx:controller="github.com.pixayo.unimob.controller.TelaMapaController"
+           fx:controller="github.com.pixayo.unimob.controller.TelaHorariosController"
            prefHeight="640.0" prefWidth="360.0">
 
     <VBox>
         <HBox fx:id="header"
               minHeight="26.0"
-              alignment="TOP_CENTER">
+              alignment="BOTTOM_CENTER">
+
         </HBox>
 
         <VBox fx:id="main"
-                alignment="TOP_CENTER"
-                VBox.vgrow="ALWAYS"
-                spacing="6.0">
+              alignment="TOP_CENTER"
+              VBox.vgrow="ALWAYS"
+              spacing="6.0">
 
             <padding>
                 <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
@@ -40,30 +41,61 @@
                 </StackPane>
 
                 <TextField styleClass="search-input"
-                           promptText="Buscar por linha, ponto ou local..."
+                           promptText="Pesquisar por linha ou trajeto..."
                            focusTraversable="false"
                            HBox.hgrow="ALWAYS"/>
             </HBox>
 
-            <Label styleClass="text-muted"
-                   wrapText="true"
-                   textAlignment="CENTER">
-                Navegue no mapa e toque nos pontos de parada para visualizar as próximas partidas
+            <ScrollPane fx:id="capsuleScrollPane" fitToHeight="true"
+                        hbarPolicy="NEVER"
+                        vbarPolicy="NEVER"
+                        styleClass="horizontal-scroll-container"
+                        onScroll="#handleScrollHorizontal">
+                <content>
+                    <HBox alignment="CENTER_LEFT"
+                          spacing="8.0"
+                          styleClass="capsule-container">
+                        <children>
+                            <ToggleButton text="Urbi Mobilidade" styleClass="capsule-toggle" selected="true"/>
+                            <ToggleButton text="Viação Pioneira" styleClass="capsule-toggle"/>
+                            <ToggleButton text="Viação Piracicaba" styleClass="capsule-toggle"/>
+                            <ToggleButton text="Viaduto ..." styleClass="capsule-toggle"/>
+                            <ToggleButton text="..." styleClass="capsule-toggle"/>
+                        </children>
+                    </HBox>
+                </content>
+            </ScrollPane>
+
+            <Separator/>
+
+            <!-- TODO: Conteúdo dinâmico da tela horários -->
+
+            <Label styleClass="section-title">
+                FAVORITOS
             </Label>
 
             <Region VBox.vgrow="ALWAYS"
                     maxWidth="1.7976931348623157E308"
                     styleClass="region-placeholder"/>
+
+            <Label styleClass="section-title">
+                TODAS AS LINHAS
+            </Label>
+
+            <Region VBox.vgrow="ALWAYS"
+                    maxWidth="1.7976931348623157E308"
+                    styleClass="region-placeholder"/>
+
         </VBox>
 
         <HBox fx:id="footer"
-                prefHeight="60.0">
+              prefHeight="60.0">
             <Button HBox.hgrow="ALWAYS"
                     prefWidth="0"
                     maxHeight="999.0"
                     maxWidth="999.0"
                     contentDisplay="TOP"
-                    styleClass="selected">
+                    onAction="#abrirTelaMapa">
                 <graphic>
                     <SVGPath content="m15-3-6-2.1-4.65 1.8q-0.5 0.2-0.925-0.113T3-4.25v-14q0-0.325 0.188-0.575t0.513-0.375l5.3-1.8 6 2.1 4.65-1.8q0.5-0.2 0.925 0.113t0.425 0.838v14q0 0.325-0.188 0.575T20.3-4.8l-5.3 1.8Zm-1-2.45v-11.7l-4-1.4v11.7l4 1.4Zm2 0 3-1v-11.85l-3 1.15v11.7Zm-11-0.25 3-1.15v-11.7l-3 1v11.85Zm11-11.45v11.7-11.7Zm-8-1.4v11.7-11.7Z"
                              styleClass="icon-svg"/>
@@ -75,7 +107,7 @@
                     maxHeight="999.0"
                     maxWidth="999.0"
                     contentDisplay="TOP"
-                    onAction="#abrirTelaHorarios">
+                    styleClass="selected">
                 <graphic>
                     <SVGPath content="M3 10a7 7 0 1114 0 7 7 0 01-14 0zm7-9a9 9 0 100 18 9 9 0 000-18zm1 5a1 1 0 10-2 0v4.032l-2.64 2.2a1 1 0 101.28 1.536l3-2.5A1 1 0 0011 10.5V6z"
                              styleClass="icon-svg"/>

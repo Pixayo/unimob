@@ -1,0 +1,95 @@
+@import url(root.css);
+
+#header {
+    -fx-background-color: -bg1;
+}
+
+#header .text-title {
+    -fx-text-fill: -fg1;
+    -fx-font-size: 18px;
+    -fx-font-weight: lighter;
+}
+
+#footer .button {
+    -fx-text-fill: -text-dark;
+    -fx-background-color: -bg1;
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+}
+
+#footer .button.selected {
+    -fx-background-color: -bg2;
+}
+
+.section-title {
+    -fx-font-weight: bold;
+    -fx-max-width: infinity;
+    -fx-alignment: center-left;
+}
+
+.text-muted {
+    -fx-text-fill: -text-mute;
+}
+
+.search-container {
+    -fx-background-color: -fg3;
+    -fx-background-radius: 12px;
+    -fx-padding: 4px 0px 4px 14px;
+}
+
+.search-input {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 7px 10px 7px 6px;
+}
+
+.search-input:focused {
+    -fx-background-color: transparent;
+}
+
+.search-container .icon-wrapper {
+    -fx-pref-width: 16px;
+    -fx-pref-height: 16px;
+}
+
+.search-container .icon-svg {
+    -fx-fill: -icon-light;
+}
+
+.icon-svg {
+    -fx-fill: -fg1;
+}
+
+.horizontal-scroll-container {
+    -fx-background-color: transparent;
+    -fx-background-insets: 0;
+    -fx-padding: 0;
+}
+
+.horizontal-scroll-container .viewport {
+    -fx-background-color: transparent;
+}
+
+.capsule-container {
+    -fx-padding: 4px 10px;
+}
+
+.capsule-toggle {
+    -fx-background-color: -fg3;
+    -fx-text-fill: -text-mute;
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-padding: 6px 14px;
+    -fx-cursor: hand;
+}
+
+.capsule-toggle:selected {
+    -fx-background-color: -bg1;
+    -fx-text-fill: -text-dark;
+    -fx-font-weight: bold;
+}
+
+.region-placeholder {
+    -fx-background-color: #cccccc;
+    -fx-background-radius: 4px;
+}
