@@ -46,7 +46,8 @@
                            HBox.hgrow="ALWAYS"/>
             </HBox>
 
-            <ScrollPane fx:id="capsuleScrollPane" fitToHeight="true"
+            <ScrollPane fx:id="capsuleScrollPane"
+                        fitToHeight="true"
                         hbarPolicy="NEVER"
                         vbarPolicy="NEVER"
                         styleClass="horizontal-scroll-container"
@@ -67,8 +68,6 @@
             </ScrollPane>
 
             <Separator/>
-
-            <!-- TODO: Conteúdo dinâmico da tela horários -->
 
             <Label styleClass="section-title">
                 FAVORITOS
