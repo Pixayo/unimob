@@ -13,7 +13,7 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         SceneManager sceneManager = new SceneManager(stage, SceneName.TELA_MAPA);
 
-        // sceneManager.addScene(SceneName.NOME_TELA);
+        sceneManager.addScene(SceneName.TELA_HORARIOS);
         // ...
 
         stage.setTitle("Unimob");
