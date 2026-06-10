@@ -1,106 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.shape.*?>
 
-
-<StackPane xmlns="http://javafx.com/javafx"
-           xmlns:fx="http://javafx.com/fxml"
-           fx:controller="github.com.pixayo.unimob.controller.TelaMapaController"
-           prefHeight="640.0" prefWidth="360.0">
+<StackPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.com.pixayo.unimob.controller.TelaMapaController">
 
     <VBox>
-        <HBox fx:id="header"
-              minHeight="26.0"
-              alignment="TOP_CENTER">
+        <HBox fx:id="header" alignment="TOP_CENTER" minHeight="26.0">
         </HBox>
 
-        <VBox fx:id="main"
-                alignment="TOP_CENTER"
-                VBox.vgrow="ALWAYS"
-                spacing="6.0">
+        <VBox fx:id="main" alignment="TOP_CENTER" spacing="6.0" VBox.vgrow="ALWAYS">
 
             <padding>
-                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
             </padding>
 
-            <HBox styleClass="search-container"
-                  alignment="BOTTOM_CENTER"
-                  spacing="4.0">
+            <HBox alignment="BOTTOM_CENTER" spacing="4.0" styleClass="search-container">
 
                 <padding>
-                    <Insets left="10.0"/>
+                    <Insets left="10.0" />
                 </padding>
 
                 <StackPane styleClass="icon-wrapper">
-                    <SVGPath content="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                             styleClass="icon-svg"/>
+                    <SVGPath content="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" styleClass="icon-svg" />
                 </StackPane>
 
-                <TextField styleClass="search-input"
-                           promptText="Buscar por linha, ponto ou local..."
-                           focusTraversable="false"
-                           HBox.hgrow="ALWAYS"/>
+                <TextField focusTraversable="false" promptText="Buscar por linha, ponto ou local..." styleClass="search-input" HBox.hgrow="ALWAYS" />
             </HBox>
 
-            <Label styleClass="text-muted"
-                   wrapText="true"
-                   textAlignment="CENTER">
+            <Label styleClass="text-muted" textAlignment="CENTER" wrapText="true">
                 Navegue no mapa e toque nos pontos de parada para visualizar as próximas partidas
             </Label>
 
-            <Region VBox.vgrow="ALWAYS"
-                    maxWidth="1.7976931348623157E308"
-                    styleClass="region-placeholder"/>
+            <Region maxWidth="1.7976931348623157E308" styleClass="region-placeholder" VBox.vgrow="ALWAYS" />
         </VBox>
 
-        <HBox fx:id="footer"
-                prefHeight="60.0">
-            <Button HBox.hgrow="ALWAYS"
-                    prefWidth="0"
-                    maxHeight="999.0"
-                    maxWidth="999.0"
-                    contentDisplay="TOP"
-                    styleClass="selected">
+        <HBox fx:id="footer" prefHeight="60.0">
+            <Button contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" prefWidth="0" styleClass="selected" HBox.hgrow="ALWAYS">
                 <graphic>
-                    <SVGPath content="m15-3-6-2.1-4.65 1.8q-0.5 0.2-0.925-0.113T3-4.25v-14q0-0.325 0.188-0.575t0.513-0.375l5.3-1.8 6 2.1 4.65-1.8q0.5-0.2 0.925 0.113t0.425 0.838v14q0 0.325-0.188 0.575T20.3-4.8l-5.3 1.8Zm-1-2.45v-11.7l-4-1.4v11.7l4 1.4Zm2 0 3-1v-11.85l-3 1.15v11.7Zm-11-0.25 3-1.15v-11.7l-3 1v11.85Zm11-11.45v11.7-11.7Zm-8-1.4v11.7-11.7Z"
-                             styleClass="icon-svg"/>
+                    <SVGPath content="m15-3-6-2.1-4.65 1.8q-0.5 0.2-0.925-0.113T3-4.25v-14q0-0.325 0.188-0.575t0.513-0.375l5.3-1.8 6 2.1 4.65-1.8q0.5-0.2 0.925 0.113t0.425 0.838v14q0 0.325-0.188 0.575T20.3-4.8l-5.3 1.8Zm-1-2.45v-11.7l-4-1.4v11.7l4 1.4Zm2 0 3-1v-11.85l-3 1.15v11.7Zm-11-0.25 3-1.15v-11.7l-3 1v11.85Zm11-11.45v11.7-11.7Zm-8-1.4v11.7-11.7Z" styleClass="icon-svg" />
                 </graphic>
                 Mapa
             </Button>
-            <Button HBox.hgrow="ALWAYS"
-                    prefWidth="0"
-                    maxHeight="999.0"
-                    maxWidth="999.0"
-                    contentDisplay="TOP"
-                    onAction="#abrirTelaHorarios">
+            <Button contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" onAction="#abrirTelaHorarios" prefWidth="0" HBox.hgrow="ALWAYS">
                 <graphic>
-                    <SVGPath content="M3 10a7 7 0 1114 0 7 7 0 01-14 0zm7-9a9 9 0 100 18 9 9 0 000-18zm1 5a1 1 0 10-2 0v4.032l-2.64 2.2a1 1 0 101.28 1.536l3-2.5A1 1 0 0011 10.5V6z"
-                             styleClass="icon-svg"/>
+                    <SVGPath content="M3 10a7 7 0 1114 0 7 7 0 01-14 0zm7-9a9 9 0 100 18 9 9 0 000-18zm1 5a1 1 0 10-2 0v4.032l-2.64 2.2a1 1 0 101.28 1.536l3-2.5A1 1 0 0011 10.5V6z" styleClass="icon-svg" />
                 </graphic>
                 Horários
             </Button>
-            <Button HBox.hgrow="ALWAYS"
-                    prefWidth="0"
-                    maxHeight="999.0"
-                    maxWidth="999.0"
-                    contentDisplay="TOP">
+            <Button contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" onAction="#abriTelaFavoritos" prefWidth="0" text="Favoritos" HBox.hgrow="ALWAYS">
                 <graphic>
-                    <SVGPath content="M5-3v-16q0-0.825 0.588-1.413T7-21h10q0.825 0 1.413 0.588T19-19v16L12-6 5-3Zm2-3.05 5-2.15 5 2.15v-12.95H7v12.95Zm0-12.95h10-10Z"
-                             styleClass="icon-svg"/>
+                    <SVGPath content="M5-3v-16q0-0.825 0.588-1.413T7-21h10q0.825 0 1.413 0.588T19-19v16L12-6 5-3Zm2-3.05 5-2.15 5 2.15v-12.95H7v12.95Zm0-12.95h10-10Z" styleClass="icon-svg" />
                 </graphic>
                 Favoritos
             </Button>
-            <Button HBox.hgrow="ALWAYS"
-                    prefWidth="0"
-                    maxHeight="999.0"
-                    maxWidth="999.0"
-                    contentDisplay="TOP">
+            <Button contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" prefWidth="0" HBox.hgrow="ALWAYS">
                 <graphic>
-                    <SVGPath content="M3-6v-2h18v2H3Zm0-5v-2h18v2H3Zm0-5v-2h18v2H3Z"
-                             styleClass="icon-svg"/>
+                    <SVGPath content="M3-6v-2h18v2H3Zm0-5v-2h18v2H3Zm0-5v-2h18v2H3Z" styleClass="icon-svg" />
                 </graphic>
                 Mais
             </Button>
