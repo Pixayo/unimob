@@ -6,8 +6,7 @@ pautado em diretrizes de acessibilidade digital e design inclusivo.
 
 ## 1. Introdução
 O projeto aborda as inconformidades de acessibilidade digital identificadas
-no sistema de mobilidade urbana do Distrito Federal (DF no Ponto) pautada na
-norma **ABNT NBR 17225**. Constatou-se a ausência de mecanismos fundamentais
+no aplicativo. Constatou-se a ausência de mecanismos fundamentais
 de adaptação visual (como contraste dinâmico e redimensionamento escalável
 de fontes) e suporte inadequado a operações assistivas.
 
