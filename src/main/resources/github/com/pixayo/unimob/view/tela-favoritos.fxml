@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<StackPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.com.pixayo.unimob.controller.TelaFavoritosController">
+
+    <VBox>
+        <HBox fx:id="header" alignment="BOTTOM_CENTER" minHeight="26.0">
+
+            <HBox spacing="15.0" alignment="TOP_CENTER" translateX="10.0" translateY="-2.0">
+                <Button text="Rotas"
+                        prefWidth="90.0"
+                        prefHeight="35.0"
+                        style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 20;" />
+
+                <Button text="Linhas"
+                        prefWidth="90.0"
+                        prefHeight="35.0"
+                        style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 20;" />
+
+                <Button text="Pontos"
+                        prefWidth="90.0"
+                        prefHeight="35.0"
+                        style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 20;" />
+            </HBox>
+
+        </HBox>
+
+        <VBox fx:id="main" alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+            <Label text="Não há rotas salvas como favorita! Planeje seu deslocamento e salve-o como favorito.Ele estará aqui para consultas futuras" translateX="5.0" translateY="260.0"
+                   wrapText="true"
+                   textAlignment="CENTER"
+                   maxWidth="300.0"
+            />
+            <SVGPath content="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
+                     fill="dodgerblue" translateX="5.0" translateY="170.0"
+                     scaleX="2.0"
+                     scaleY="2.0"/>
+
+        </VBox>
+
+        <HBox fx:id="footer" prefHeight="60.0">
+            <Button contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" onAction="#abrirTelaMapa" prefWidth="0" HBox.hgrow="ALWAYS">
+                <graphic>
+                    <SVGPath content="m15-3-6-2.1-4.65 1.8q-0.5 0.2-0.925-0.113T3-4.25v-14q0-0.325 0.188-0.575t0.513-0.375l5.3-1.8 6 2.1 4.65-1.8q0.5-0.2 0.925 0.113t0.425 0.838v14q0 0.325-0.188 0.575T20.3-4.8l-5.3 1.8Zm-1-2.45v-11.7l-4-1.4v11.7l4 1.4Zm2 0 3-1v-11.85l-3 1.15v11.7Zm-11-0.25 3-1.15v-11.7l-3 1v11.85Zm11-11.45v11.7-11.7Zm-8-1.4v11.7-11.7Z" styleClass="icon-svg" />
+                </graphic>
+                Mapa
+            </Button>
+
+            <Button contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" onAction="#abrirTelaHorarios" prefWidth="0" HBox.hgrow="ALWAYS">
+                <graphic>
+                    <SVGPath content="M3 10a7 7 0 1114 0 7 7 0 01-14 0zm7-9a9 9 0 100 18 9 9 0 000-18zm1 5a1 1 0 10-2 0v4.032l-2.64 2.2a1 1 0 101.28 1.536l3-2.5A1 1 0 0011 10.5V6z" styleClass="icon-svg" />
+                </graphic>
+                Horários
+            </Button>
+
+            <Button contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" prefWidth="0" styleClass="selected" text="Favoritos" HBox.hgrow="ALWAYS">
+                <graphic>
+                    <SVGPath content="M5-3v-16q0-0.825 0.588-1.413T7-21h10q0.825 0 1.413 0.588T19-19v16L12-6 5-3Zm2-3.05 5-2.15 5 2.15v-12.95H7v12.95Zm0-12.95h10-10Z" styleClass="icon-svg" />
+                </graphic>
+                Favoritos
+            </Button>
+
+            <Button contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" prefWidth="0" HBox.hgrow="ALWAYS">
+                <graphic>
+                    <SVGPath content="M3-6v-2h18v2H3Zm0-5v-2h18v2H3Zm0-5v-2h18v2H3Z" styleClass="icon-svg" />
+                </graphic>
+                Mais
+            </Button>
+        </HBox>
+    </VBox>
+
+</StackPane>

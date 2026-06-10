@@ -11,7 +11,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        SceneManager sceneManager = new SceneManager(stage, SceneName.TELA_MAPA);
+        SceneManager sceneManager = new SceneManager(stage, SceneName.TELA_FAVORITOS);
 
         // sceneManager.addScene(SceneName.NOME_TELA);
         // ...

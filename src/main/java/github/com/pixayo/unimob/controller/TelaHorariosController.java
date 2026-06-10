@@ -17,6 +17,11 @@ public class TelaHorariosController extends BaseController {
     }
 
     @FXML
+    private void abrirTelaFavoritos(ActionEvent actionEvent) {
+        sceneManager.displayScene(SceneName.TELA_FAVORITOS);
+    }
+
+    @FXML
     private void handleScrollHorizontal(ScrollEvent event) {
         if (event.getDeltaY() != 0) {
             double scrollSpeed = 0.003;

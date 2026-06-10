@@ -10,4 +10,8 @@ public class TelaMapaController extends BaseController {
     private void abrirTelaHorarios(ActionEvent actionEvent) {
         sceneManager.displayScene(SceneName.TELA_HORARIOS);
     }
+
+    public void abriTelaFavoritos(ActionEvent actionEvent) {
+        sceneManager.displayScene(SceneName.TELA_FAVORITOS);
+    }
 }

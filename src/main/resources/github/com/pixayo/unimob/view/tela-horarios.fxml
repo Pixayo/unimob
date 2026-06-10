@@ -15,7 +15,6 @@
         <HBox fx:id="header"
               minHeight="26.0"
               alignment="BOTTOM_CENTER">
-
         </HBox>
 
         <VBox fx:id="main"
@@ -68,8 +67,6 @@
 
             <Separator/>
 
-            <!-- TODO: Conteúdo dinâmico da tela horários -->
-
             <Label styleClass="section-title">
                 FAVORITOS
             </Label>
@@ -90,6 +87,7 @@
 
         <HBox fx:id="footer"
               prefHeight="60.0">
+
             <Button HBox.hgrow="ALWAYS"
                     prefWidth="0"
                     maxHeight="999.0"
@@ -102,6 +100,7 @@
                 </graphic>
                 Mapa
             </Button>
+
             <Button HBox.hgrow="ALWAYS"
                     prefWidth="0"
                     maxHeight="999.0"
@@ -114,17 +113,20 @@
                 </graphic>
                 Horários
             </Button>
+
             <Button HBox.hgrow="ALWAYS"
                     prefWidth="0"
                     maxHeight="999.0"
                     maxWidth="999.0"
-                    contentDisplay="TOP">
+                    contentDisplay="TOP"
+                    onAction="#abrirTelaFavoritos">
                 <graphic>
                     <SVGPath content="M5-3v-16q0-0.825 0.588-1.413T7-21h10q0.825 0 1.413 0.588T19-19v16L12-6 5-3Zm2-3.05 5-2.15 5 2.15v-12.95H7v12.95Zm0-12.95h10-10Z"
                              styleClass="icon-svg"/>
                 </graphic>
                 Favoritos
             </Button>
+
             <Button HBox.hgrow="ALWAYS"
                     prefWidth="0"
                     maxHeight="999.0"
