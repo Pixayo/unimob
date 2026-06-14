@@ -7,35 +7,25 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 
 import java.io.IOException;
+import java.net.URL;
 import java.util.Objects;
 
-/**
- * Fábrica responsável pela instanciação de novas telas da aplicação.
- */
 class SceneFactory {
 
-    /**
-     * Cria e configura uma nova cena com base na tela especificada.
-     *
-     * <p>Este método localiza o arquivo FXML associado através do {@link SceneName},
-     * realiza o carregamento da árvore de nós via {@link FXMLLoader} e aplica as
-     * folhas de estilo (CSS) globais da aplicação antes de retornar a cena configurada.</p>
-     *
-     * @param sceneName
-     * o enumerador que identifica a tela a ser instanciada.
-     * @return
-     * uma nova instância de {@link Scene} com a hierarquia de componentes
-     * carregada e estilizada.
-     * @throws RuntimeException
-     * se houver falha no carregamento do arquivo ou {@code sceneName} é nulo.
-     * @see SceneName
-     */
     static Scene createScene(SceneName sceneName, SceneManager sceneManager) {
         String filename = sceneName.getFilename();
         String stylesheet = "css/style.css";
 
         try {
-            FXMLLoader loader = new FXMLLoader(SceneFactory.class.getResource(filename));
+            // Força a busca pelo caminho absoluto dentro de resources se necessário
+            String path = filename.startsWith("/") ? filename : "/github/com/pixayo/unimob/view/" + filename;
+            URL fxmlUrl = SceneFactory.class.getResource(path);
+
+            if (fxmlUrl == null) {
+                throw new IllegalArgumentException("Arquivo FXML não encontrado no caminho: " + path);
+            }
+
+            FXMLLoader loader = new FXMLLoader(fxmlUrl);
             String stylePath = Objects.requireNonNull(SceneFactory.class.getResource(stylesheet)).toExternalForm();
             Region root = loader.load();
 

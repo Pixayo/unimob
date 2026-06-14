@@ -7,22 +7,45 @@ import javafx.fxml.FXML;
 public class TelaMenuController extends BaseController {
 
     @FXML
+    private void handleConfiguracoes(ActionEvent actionEvent) {
+        System.out.println("Botão Configurações clicado!");
+    }
+
+    @FXML
+    private void handleSobre(ActionEvent actionEvent) {
+        System.out.println("Botão Sobre o Aplicativo clicado!");
+    }
+
+    @FXML
+    private void handleGalerinhaTI(ActionEvent actionEvent) {
+        System.out.println("Botão Galerinha da TI clicado!");
+    }
+
+    @FXML
     private void abrirTelaMapa(ActionEvent actionEvent) {
-        sceneManager.displayScene(SceneName.TELA_MAPA);
+        if (sceneManager != null) {
+            sceneManager.displayScene(SceneName.TELA_MAPA);
+        }
     }
 
     @FXML
     private void abrirTelaHorarios(ActionEvent actionEvent) {
-        sceneManager.displayScene(SceneName.TELA_HORARIOS);
+        if (sceneManager != null) {
+            sceneManager.displayScene(SceneName.TELA_HORARIOS);
+        }
     }
 
     @FXML
     private void abrirTelaFavoritos(ActionEvent actionEvent) {
-        sceneManager.displayScene(SceneName.TELA_FAVORITOS);
+        if (sceneManager != null) {
+            sceneManager.displayScene(SceneName.TELA_FAVORITOS);
+        }
     }
 
     @FXML
     private void abrirTelaMenu(ActionEvent actionEvent) {
-        sceneManager.displayScene(SceneName.TELA_MENU);
+        if (sceneManager != null) {
+            sceneManager.displayScene(SceneName.TELA_MENU);
+        }
     }
 }
