@@ -17,8 +17,18 @@ public class TelaHorariosController extends BaseController {
     }
 
     @FXML
+    private void abrirTelaHorarios(ActionEvent actionEvent) {
+        sceneManager.displayScene(SceneName.TELA_HORARIOS);
+    }
+
+    @FXML
     private void abrirTelaFavoritos(ActionEvent actionEvent) {
         sceneManager.displayScene(SceneName.TELA_FAVORITOS);
+    }
+
+    @FXML
+    private void abrirTelaMenu(ActionEvent actionEvent) {
+        sceneManager.displayScene(SceneName.TELA_MENU);
     }
 
     @FXML
