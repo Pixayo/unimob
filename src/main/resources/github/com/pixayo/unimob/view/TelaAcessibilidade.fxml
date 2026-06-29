@@ -8,7 +8,7 @@
 <StackPane prefHeight="640.0" prefWidth="360.0"
            xmlns="http://javafx.com/javafx/17.0.12"
            xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="github.com.pixayo.unimob.controller.TelaMenuController">
+           fx:controller="github.com.pixayo.unimob.controller.TelaAcessibilidadeController">
 
     <VBox>
         <HBox fx:id="header"
@@ -25,23 +25,26 @@
                 <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
             </padding>
 
-            <Button text="Configurações"
-                    prefWidth="320.0"
-                    prefHeight="50.0"
-                    onAction="#handleConfiguracoes"
-                    style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 25; -fx-font-weight: bold;" />
+            <Label text="Acessibilidade"
+                   style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #175898; -fx-padding: 0 0 10 0;" />
 
-            <Button text="Sobre o Aplicativo"
-                    prefWidth="320.0"
-                    prefHeight="50.0"
-                    onAction="#handleSobre"
-                    style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 25; -fx-font-weight: bold;" />
+            <ToggleButton text="Alto Contraste"
+                          prefWidth="320.0"
+                          prefHeight="50.0"
+                          onAction="#handleAltoContraste"
+                          style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 25; -fx-font-weight: bold;" />
 
-            <Button text="Tutorial"
+            <ToggleButton text="Texto Ampliado"
+                          prefWidth="320.0"
+                          prefHeight="50.0"
+                          onAction="#handleTextoAmpliado"
+                          style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 25; -fx-font-weight: bold;" />
+
+            <Button text="Voltar para Configurações"
                     prefWidth="320.0"
                     prefHeight="50.0"
-                    onAction="#handleGalerinhaTI"
-                    style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 25; -fx-font-weight: bold;" />
+                    onAction="#handleVoltarConfiguracoes"
+                    style="-fx-background-color: transparent; -fx-text-fill: #175898; -fx-border-color: #175898; -fx-border-width: 2; -fx-border-radius: 25; -fx-font-weight: bold;"/>
 
         </VBox>
 

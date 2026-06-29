@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.geometry.Insets?>
+
+<StackPane prefHeight="640.0" prefWidth="360.0"
+           xmlns="http://javafx.com/javafx/17.0.12"
+           xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="github.com.pixayo.unimob.controller.TelaTutorialController">
+
+    <VBox style="-fx-background-color: #f0f0f0;">
+        <HBox fx:id="header" minHeight="26.0" alignment="BOTTOM_CENTER" style="-fx-background-color: white;" />
+
+        <VBox fx:id="main" alignment="TOP_CENTER" VBox.vgrow="ALWAYS" spacing="15.0">
+            <padding>
+                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+            </padding>
+
+            <Label text="Menu de Acessibilidade" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #175898;"/>
+            <Label text="Entenda como usar as funções do nosso painel para adaptar o aplicativo às suas necessidades." style="-fx-text-fill: #666; -fx-font-size: 13px;" wrapText="true" textAlignment="CENTER"/>
+
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-padding: 0;">
+                <content>
+                    <VBox spacing="10" style="-fx-background-color: transparent; -fx-padding: 5;">
+
+                        <VBox spacing="5" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);">
+                            <Label text="A- / A+ (Tamanho do Texto)" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #175898;" />
+                            <Label text="Use estes botões para aumentar (A+) ou diminuir (A-) o tamanho das letras. Ideal para quem tem dificuldade em ler textos pequenos no celular." wrapText="true" style="-fx-text-fill: #555; -fx-font-size: 13px;" />
+                        </VBox>
+
+                        <VBox spacing="5" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);">
+                            <Label text="B- / B+ (Tamanho dos Elementos)" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #175898;" />
+                            <Label text="Aumenta (B+) ou diminui (B-) a espessura da fonte e o tamanho de ícones e botões da tela, deixando tudo mais largo e fácil de tocar com os dedos." wrapText="true" style="-fx-text-fill: #555; -fx-font-size: 13px;" />
+                        </VBox>
+
+                        <VBox spacing="5" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);">
+                            <Label text="Contraste" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #175898;" />
+                            <Label text="Ajusta as cores do aplicativo para destacar bem os textos e botões do fundo da tela. Essa função é muito importante para pessoas com baixa visão ou daltonismo." wrapText="true" style="-fx-text-fill: #555; -fx-font-size: 13px;" />
+                        </VBox>
+
+                        <VBox spacing="5" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);">
+                            <Label text="Tema Escuro" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #175898;" />
+                            <Label text="Substitui o fundo branco por um fundo em tons de cinza ou preto. É perfeito para navegar à noite ou em locais escuros, evitando o cansaço dos olhos." wrapText="true" style="-fx-text-fill: #555; -fx-font-size: 13px;" />
+                        </VBox>
+
+                        <VBox spacing="5" style="-fx-background-color: white; -fx-background-radius: 10; -fx-padding: 15; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);">
+                            <Label text="Leitor (Voz)" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #175898;" />
+                            <Label text="Ativa a narração em áudio. Quando ativado, o aplicativo dita em voz alta os textos, nomes de paradas e horários da tela, auxiliando pessoas com deficiência visual." wrapText="true" style="-fx-text-fill: #555; -fx-font-size: 13px;" />
+                        </VBox>
+
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <Button text="Voltar ao Menu" onAction="#abrirTelaMenu" prefWidth="200.0" prefHeight="40.0" style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 20; -fx-font-weight: bold; -fx-cursor: hand;" />
+        </VBox>
+
+        <HBox fx:id="footer" prefHeight="60.0" style="-fx-background-color: white;">
+            <Button text="Mapa" contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" onAction="#abrirTelaMapa" prefWidth="0" HBox.hgrow="ALWAYS">
+                <graphic>
+                    <SVGPath content="m15-3-6-2.1-4.65 1.8q-0.5 0.2-0.925-0.113T3-4.25v-14q0-0.325 0.188-0.575t0.513-0.375l5.3-1.8 6 2.1 4.65-1.8q0.5-0.2 0.925 0.113t0.425 0.838v14q0 0.325-0.188 0.575T20.3-4.8l-5.3 1.8Zm-1-2.45v-11.7l-4-1.4v11.7l4 1.4Zm2 0 3-1v-11.85l-3 1.15v11.7Zm-11-0.25 3-1.15v-11.7l-3 1v11.85Zm11-11.45v11.7-11.7Zm-8-1.4v11.7-11.7Z" styleClass="icon-svg" />
+                </graphic>
+            </Button>
+            <Button text="Horários" contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" onAction="#abrirTelaHorarios" prefWidth="0" HBox.hgrow="ALWAYS">
+                <graphic>
+                    <SVGPath content="M3 10a7 7 0 1114 0 7 7 0 01-14 0zm7-9a9 9 0 100 18 9 9 0 000-18zm1 5a1 1 0 10-2 0v4.032l-2.64 2.2a1 1 0 101.28 1.536l3-2.5A1 1 0 0011 10.5V6z" styleClass="icon-svg" />
+                </graphic>
+            </Button>
+            <Button text="Favoritos" contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" onAction="#abrirTelaFavoritos" prefWidth="0" HBox.hgrow="ALWAYS">
+                <graphic>
+                    <SVGPath content="M5-3v-16q0-0.825 0.588-1.413T7-21h10q0.825 0 1.413 0.588T19-19v16L12-6 5-3Zm2-3.05 5-2.15 5 2.15v-12.95H7v12.95Zm0-12.95h10-10Z" styleClass="icon-svg" />
+                </graphic>
+            </Button>
+            <Button text="Menu" styleClass="selected" contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" onAction="#abrirTelaMenu" prefWidth="0" HBox.hgrow="ALWAYS">
+                <graphic>
+                    <SVGPath content="M3-6v-2h18v2H3Zm0-5v-2h18v2H3Zm0-5v-2h18v2H3Z" styleClass="icon-svg" />
+                </graphic>
+            </Button>
+        </HBox>
+    </VBox>
+</StackPane>

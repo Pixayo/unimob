@@ -8,7 +8,7 @@
 <StackPane prefHeight="640.0" prefWidth="360.0"
            xmlns="http://javafx.com/javafx/17.0.12"
            xmlns:fx="http://javafx.com/fxml/1"
-           fx:controller="github.com.pixayo.unimob.controller.TelaMenuController">
+           fx:controller="github.com.pixayo.unimob.controller.TelaSobreController">
 
     <VBox>
         <HBox fx:id="header"
@@ -17,32 +17,56 @@
         </HBox>
 
         <VBox fx:id="main"
-              alignment="TOP_CENTER"
+              alignment="TOP_LEFT"
               VBox.vgrow="ALWAYS"
               spacing="15.0">
 
             <padding>
-                <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
+                <Insets top="20.0" right="20.0" bottom="10.0" left="20.0"/>
             </padding>
 
-            <Button text="Configurações"
-                    prefWidth="320.0"
-                    prefHeight="50.0"
-                    onAction="#handleConfiguracoes"
-                    style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 25; -fx-font-weight: bold;" />
+            <ScrollPane fitToWidth="true"
+                        styleClass="horizontal-scroll-container"
+                        style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-padding: 0;"
+                        VBox.vgrow="ALWAYS">
+                <content>
+                    <VBox spacing="20.0" style="-fx-background-color: transparent;">
+                        <children>
 
-            <Button text="Sobre o Aplicativo"
-                    prefWidth="320.0"
-                    prefHeight="50.0"
-                    onAction="#handleSobre"
-                    style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 25; -fx-font-weight: bold;" />
+                            <VBox spacing="8.0">
+                                <children>
+                                    <Label text="Quem somos nós"
+                                           styleClass="section-title"
+                                           style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+                                    <Label text="Repositório voltado à reformulação visual e estrutural da interface do sistema de mobilidade urbana do Distrito Federal (DF no Ponto), pautado in diretrizes de acessibilidade digital e design inclusivo."
+                                           styleClass="text-muted"
+                                           wrapText="true"
+                                           style="-fx-font-size: 14px;" />
+                                </children>
+                            </VBox>
 
-            <Button text="Tutorial"
-                    prefWidth="320.0"
-                    prefHeight="50.0"
-                    onAction="#handleGalerinhaTI"
-                    style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 25; -fx-font-weight: bold;" />
+                            <VBox spacing="8.0">
+                                <children>
+                                    <Label text="O que é este projeto?"
+                                           styleClass="section-title"
+                                           style="-fx-font-size: 16px; -fx-font-weight: bold;" />
+                                    <Label text="O Unimob nasceu para transformar e simplificar a mobilidade urbana integrada. Ele entrega um ecossistema limpo e inclusivo focado no controle facilitado de rotas, horários e rotinas de transporte."
+                                           styleClass="text-muted"
+                                           wrapText="true"
+                                           style="-fx-font-size: 14px;" />
+                                </children>
+                            </VBox>
 
+                        </children>
+                    </VBox>
+                </content>
+            </ScrollPane>
+
+            <Button text="← Voltar"
+                    prefWidth="320.0"
+                    prefHeight="45.0"
+                    onAction="#voltarParaMenu"
+                    style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 25; -fx-font-weight: bold;" />
         </VBox>
 
         <HBox fx:id="footer" prefHeight="60.0">
@@ -71,5 +95,4 @@
             </Button>
         </HBox>
     </VBox>
-
 </StackPane>

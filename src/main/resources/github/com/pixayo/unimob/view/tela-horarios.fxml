@@ -5,62 +5,34 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.shape.SVGPath?>
 
-
-<StackPane xmlns="http://javafx.com/javafx"
-           xmlns:fx="http://javafx.com/fxml"
-           fx:controller="github.com.pixayo.unimob.controller.TelaHorariosController"
-           prefHeight="640.0" prefWidth="360.0">
+<StackPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="github.com.pixayo.unimob.controller.TelaHorariosController" onMouseMoved="#atualizarEstrelas" prefHeight="640.0" prefWidth="360.0">
 
     <VBox>
-        <HBox fx:id="header"
-              minHeight="26.0"
-              alignment="BOTTOM_CENTER">
-        </HBox>
+        <HBox fx:id="header" minHeight="26.0" alignment="BOTTOM_CENTER" />
 
-        <VBox fx:id="main"
-              alignment="TOP_CENTER"
-              VBox.vgrow="ALWAYS"
-              spacing="6.0">
-
+        <VBox fx:id="main" alignment="TOP_CENTER" VBox.vgrow="ALWAYS" spacing="6.0">
             <padding>
                 <Insets top="20.0" right="20.0" bottom="20.0" left="20.0"/>
             </padding>
 
-            <HBox styleClass="search-container"
-                  alignment="BOTTOM_CENTER"
-                  spacing="4.0">
-
+            <HBox styleClass="search-container" alignment="BOTTOM_CENTER" spacing="4.0">
                 <padding>
                     <Insets left="10.0"/>
                 </padding>
-
                 <StackPane styleClass="icon-wrapper">
-                    <SVGPath content="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                             styleClass="icon-svg"/>
+                    <SVGPath content="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" styleClass="icon-svg"/>
                 </StackPane>
-
-                <TextField styleClass="search-input"
-                           promptText="Pesquisar por linha ou trajeto..."
-                           focusTraversable="false"
-                           HBox.hgrow="ALWAYS"/>
+                <TextField styleClass="search-input" promptText="Pesquisar por linha ou trajeto..." focusTraversable="false" HBox.hgrow="ALWAYS"/>
             </HBox>
 
-            <ScrollPane fx:id="capsuleScrollPane"
-                        fitToHeight="true"
-                        hbarPolicy="NEVER"
-                        vbarPolicy="NEVER"
-                        styleClass="horizontal-scroll-container"
-                        onScroll="#handleScrollHorizontal">
+            <ScrollPane fx:id="capsuleScrollPane" fitToHeight="true" hbarPolicy="NEVER" vbarPolicy="NEVER" styleClass="horizontal-scroll-container" onScroll="#handleScrollHorizontal">
                 <content>
-                    <HBox alignment="CENTER_LEFT"
-                          spacing="8.0"
-                          styleClass="capsule-container">
+                    <HBox alignment="CENTER_LEFT" spacing="8.0" styleClass="capsule-container">
                         <children>
                             <ToggleButton text="Urbi Mobilidade" styleClass="capsule-toggle" selected="true"/>
                             <ToggleButton text="Viação Pioneira" styleClass="capsule-toggle"/>
                             <ToggleButton text="Viação Piracicaba" styleClass="capsule-toggle"/>
-                            <ToggleButton text="Viaduto ..." styleClass="capsule-toggle"/>
-                            <ToggleButton text="..." styleClass="capsule-toggle"/>
+                            <ToggleButton text="Viaduto" styleClass="capsule-toggle"/>
                         </children>
                     </HBox>
                 </content>
@@ -68,76 +40,108 @@
 
             <Separator/>
 
-            <Label styleClass="section-title">
-                FAVORITOS
-            </Label>
+            <Label styleClass="section-title">TODAS AS LINHAS</Label>
 
-            <Region VBox.vgrow="ALWAYS"
-                    maxWidth="1.7976931348623157E308"
-                    styleClass="region-placeholder"/>
+            <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-padding: 0;">
+                <content>
+                    <VBox spacing="10" style="-fx-background-color: transparent; -fx-padding: 5;">
 
-            <Label styleClass="section-title">
-                TODAS AS LINHAS
-            </Label>
+                        <HBox alignment="CENTER_LEFT" spacing="5" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-border-color: #e0e0e0; -fx-border-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);">
+                            <Button HBox.hgrow="ALWAYS" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-padding: 8; -fx-cursor: hand; -fx-alignment: center-left;" onAction="#mostrarInfo006">
+                                <graphic>
+                                    <HBox alignment="CENTER_LEFT" spacing="12">
+                                        <Region minWidth="5" maxWidth="5" minHeight="40" style="-fx-background-color: #4CAF50; -fx-background-radius: 5;" />
+                                        <VBox alignment="CENTER_LEFT" spacing="3">
+                                            <HBox alignment="CENTER_LEFT" spacing="6">
+                                                <SVGPath content="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z" style="-fx-fill: #175898;"/>
+                                                <Label text="0.006" minWidth="-Infinity" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #000;" />
+                                            </HBox>
+                                            <Label text="Cruzeiro/Sudoeste/W3 Sul/Octogonal" style="-fx-text-fill: #666; -fx-font-size: 12px;" wrapText="true" />
+                                        </VBox>
+                                    </HBox>
+                                </graphic>
+                            </Button>
+                            <Button style="-fx-background-color: #f5f5f5; -fx-background-radius: 20; -fx-cursor: hand;" onAction="#toggleFavorito006">
+                                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                                <graphic>
+                                    <SVGPath fx:id="star006" content="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" style="-fx-fill: transparent; -fx-stroke: #aaa; -fx-stroke-width: 2;"/>
+                                </graphic>
+                            </Button>
+                        </HBox>
 
-            <Region VBox.vgrow="ALWAYS"
-                    maxWidth="1.7976931348623157E308"
-                    styleClass="region-placeholder"/>
+                        <HBox alignment="CENTER_LEFT" spacing="5" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-border-color: #e0e0e0; -fx-border-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);">
+                            <Button HBox.hgrow="ALWAYS" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-padding: 8; -fx-cursor: hand; -fx-alignment: center-left;" onAction="#mostrarInfo082">
+                                <graphic>
+                                    <HBox alignment="CENTER_LEFT" spacing="12">
+                                        <Region minWidth="5" maxWidth="5" minHeight="40" style="-fx-background-color: #2196F3; -fx-background-radius: 5;" />
+                                        <VBox alignment="CENTER_LEFT" spacing="3">
+                                            <HBox alignment="CENTER_LEFT" spacing="6">
+                                                <SVGPath content="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z" style="-fx-fill: #175898;"/>
+                                                <Label text="0.082" minWidth="-Infinity" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #000;" />
+                                            </HBox>
+                                            <Label text="Núcleo Bandeirante(Metropolitana)" style="-fx-text-fill: #666; -fx-font-size: 12px;" wrapText="true" />
+                                        </VBox>
+                                    </HBox>
+                                </graphic>
+                            </Button>
+                            <Button style="-fx-background-color: #f5f5f5; -fx-background-radius: 20; -fx-cursor: hand;" onAction="#toggleFavorito082">
+                                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                                <graphic>
+                                    <SVGPath fx:id="star082" content="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" style="-fx-fill: transparent; -fx-stroke: #aaa; -fx-stroke-width: 2;"/>
+                                </graphic>
+                            </Button>
+                        </HBox>
+
+                        <HBox alignment="CENTER_LEFT" spacing="5" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-border-color: #e0e0e0; -fx-border-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);">
+                            <Button HBox.hgrow="ALWAYS" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-padding: 8; -fx-cursor: hand; -fx-alignment: center-left;" onAction="#mostrarInfo3213">
+                                <graphic>
+                                    <HBox alignment="CENTER_LEFT" spacing="12">
+                                        <Region minWidth="5" maxWidth="5" minHeight="40" style="-fx-background-color: #FFEB3B; -fx-background-radius: 5;" />
+                                        <VBox alignment="CENTER_LEFT" spacing="3">
+                                            <HBox alignment="CENTER_LEFT" spacing="6">
+                                                <SVGPath content="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z" style="-fx-fill: #175898;"/>
+                                                <Label text="3213" minWidth="-Infinity" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #000;" />
+                                            </HBox>
+                                            <Label text="Brt Gama/DF-483/Santa Maria Sul" style="-fx-text-fill: #666; -fx-font-size: 12px;" wrapText="true" />
+                                        </VBox>
+                                    </HBox>
+                                </graphic>
+                            </Button>
+                            <Button style="-fx-background-color: #f5f5f5; -fx-background-radius: 20; -fx-cursor: hand;" onAction="#toggleFavorito3213">
+                                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                                <graphic>
+                                    <SVGPath fx:id="star3213" content="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" style="-fx-fill: transparent; -fx-stroke: #aaa; -fx-stroke-width: 2;"/>
+                                </graphic>
+                            </Button>
+                        </HBox>
+
+                    </VBox>
+                </content>
+            </ScrollPane>
 
         </VBox>
 
-        <HBox fx:id="footer"
-              prefHeight="60.0">
-
-            <Button text="Mapa" HBox.hgrow="ALWAYS"
-                    prefWidth="0"
-                    maxHeight="999.0"
-                    maxWidth="999.0"
-                    contentDisplay="TOP"
-                    onAction="#abrirTelaMapa">
+        <HBox fx:id="footer" prefHeight="60.0">
+            <Button text="Mapa" HBox.hgrow="ALWAYS" prefWidth="0" maxHeight="999.0" maxWidth="999.0" contentDisplay="TOP" onAction="#abrirTelaMapa">
                 <graphic>
-                    <SVGPath content="m15-3-6-2.1-4.65 1.8q-0.5 0.2-0.925-0.113T3-4.25v-14q0-0.325 0.188-0.575t0.513-0.375l5.3-1.8 6 2.1 4.65-1.8q0.5-0.2 0.925 0.113t0.425 0.838v14q0 0.325-0.188 0.575T20.3-4.8l-5.3 1.8Zm-1-2.45v-11.7l-4-1.4v11.7l4 1.4Zm2 0 3-1v-11.85l-3 1.15v11.7Zm-11-0.25 3-1.15v-11.7l-3 1v11.85Zm11-11.45v11.7-11.7Zm-8-1.4v11.7-11.7Z"
-                             styleClass="icon-svg"/>
+                    <SVGPath content="m15-3-6-2.1-4.65 1.8q-0.5 0.2-0.925-0.113T3-4.25v-14q0-0.325 0.188-0.575t0.513-0.375l5.3-1.8 6 2.1 4.65-1.8q0.5-0.2 0.925 0.113t0.425 0.838v14q0 0.325-0.188 0.575T20.3-4.8l-5.3 1.8Zm-1-2.45v-11.7l-4-1.4v11.7l4 1.4Zm2 0 3-1v-11.85l-3 1.15v11.7Zm-11-0.25 3-1.15v-11.7l-3 1v11.85Zm11-11.45v11.7-11.7Zm-8-1.4v11.7-11.7Z" styleClass="icon-svg"/>
                 </graphic>
             </Button>
-
-            <Button text="Horários" HBox.hgrow="ALWAYS"
-                    prefWidth="0"
-                    maxHeight="999.0"
-                    maxWidth="999.0"
-                    contentDisplay="TOP"
-                    styleClass="selected"
-                    onAction="#abrirTelaHorarios">
+            <Button text="Horários" HBox.hgrow="ALWAYS" prefWidth="0" maxHeight="999.0" maxWidth="999.0" contentDisplay="TOP" styleClass="selected" onAction="#abrirTelaHorarios">
                 <graphic>
-                    <SVGPath content="M3 10a7 7 0 1114 0 7 7 0 01-14 0zm7-9a9 9 0 100 18 9 9 0 000-18zm1 5a1 1 0 10-2 0v4.032l-2.64 2.2a1 1 0 101.28 1.536l3-2.5A1 1 0 0011 10.5V6z"
-                             styleClass="icon-svg"/>
+                    <SVGPath content="M3 10a7 7 0 1114 0 7 7 0 01-14 0zm7-9a9 9 0 100 18 9 9 0 000-18zm1 5a1 1 0 10-2 0v4.032l-2.64 2.2a1 1 0 101.28 1.536l3-2.5A1 1 0 0011 10.5V6z" styleClass="icon-svg"/>
                 </graphic>
             </Button>
-
-            <Button text="Favoritos" HBox.hgrow="ALWAYS"
-                    prefWidth="0"
-                    maxHeight="999.0"
-                    maxWidth="999.0"
-                    contentDisplay="TOP"
-                    onAction="#abrirTelaFavoritos">
+            <Button text="Favoritos" HBox.hgrow="ALWAYS" prefWidth="0" maxHeight="999.0" maxWidth="999.0" contentDisplay="TOP" onAction="#abrirTelaFavoritos">
                 <graphic>
-                    <SVGPath content="M5-3v-16q0-0.825 0.588-1.413T7-21h10q0.825 0 1.413 0.588T19-19v16L12-6 5-3Zm2-3.05 5-2.15 5 2.15v-12.95H7v12.95Zm0-12.95h10-10Z"
-                             styleClass="icon-svg"/>
+                    <SVGPath content="M5-3v-16q0-0.825 0.588-1.413T7-21h10q0.825 0 1.413 0.588T19-19v16L12-6 5-3Zm2-3.05 5-2.15 5 2.15v-12.95H7v12.95Zm0-12.95h10-10Z" styleClass="icon-svg"/>
                 </graphic>
             </Button>
-
-            <Button text="Menu" HBox.hgrow="ALWAYS"
-                    prefWidth="0"
-                    maxHeight="999.0"
-                    maxWidth="999.0"
-                    contentDisplay="TOP"
-                    onAction="#abrirTelaMenu">
+            <Button text="Menu" HBox.hgrow="ALWAYS" prefWidth="0" maxHeight="999.0" maxWidth="999.0" contentDisplay="TOP" onAction="#abrirTelaMenu">
                 <graphic>
-                    <SVGPath content="M3-6v-2h18v2H3Zm0-5v-2h18v2H3Zm0-5v-2h18v2H3Z"
-                             styleClass="icon-svg"/>
+                    <SVGPath content="M3-6v-2h18v2H3Zm0-5v-2h18v2H3Zm0-5v-2h18v2H3Z" styleClass="icon-svg"/>
                 </graphic>
             </Button>
         </HBox>
     </VBox>
-
 </StackPane>

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Mapa Limpo - Paradas DF</title>
+    <script src="https://cdn.jsdelivr.net/npm/ol@8.2.0/dist/ol.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ol@8.2.0/ol.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+            background-color: #f0f0f0;
+            overflow: hidden;
+        }
+
+        #map {
+            height: 100%;
+            width: 100%;
+            z-index: 1;
+        }
+
+        .parada-icon {
+            background-color: #1a1a1a;
+            color: white;
+            border-radius: 6px;
+            border: 1.5px solid white;
+            text-align: center;
+            line-height: 26px;
+            font-size: 14px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+            width: 26px;
+            height: 26px;
+            cursor: pointer;
+        }
+
+        .user-dot {
+            background-color: #0074D9;
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(0,116,217,0.8);
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+        }
+
+        .ol-popup {
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #cccccc;
+            bottom: 30px;
+            left: -50px;
+            min-width: 200px;
+            font-size: 14px;
+        }
+
+        .ol-popup:after, .ol-popup:before {
+            top: 100%;
+            border: solid transparent;
+            content: " ";
+            height: 0;
+            width: 0;
+            position: absolute;
+            pointer-events: none;
+        }
+
+        .ol-popup:after {
+            border-top-color: white;
+            border-width: 10px;
+            left: 50px;
+            margin-left: -10px;
+        }
+
+        .ol-popup-closer {
+            text-decoration: none;
+            position: absolute;
+            top: 2px;
+            right: 8px;
+            color: #c3c3c3;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+<div id="popup" class="ol-popup">
+    <a href="#" id="popup-closer" class="ol-popup-closer">✖</a>
+    <div id="popup-content"></div>
+</div>
+
+<script>
+    const container = document.getElementById('popup');
+    const content = document.getElementById('popup-content');
+    const closer = document.getElementById('popup-closer');
+
+    const popupOverlay = new ol.Overlay({
+        element: container,
+        autoPan: { animation: { duration: 250 } }
+    });
+
+    closer.onclick = function () {
+        popupOverlay.setPosition(undefined);
+        closer.blur();
+        return false;
+    };
+
+    const map = new ol.Map({
+        target: 'map',
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.XYZ({
+                    url: 'https://{a-c}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}.png',
+                    attributions: '© OpenStreetMap, © CartoDB'
+                })
+            }),
+            new ol.layer.Tile({
+                source: new ol.source.XYZ({
+                    url: 'https://tile.memomaps.de/tilegen/{z}/{x}/{y}.png',
+                    attributions: 'Rotas © memomaps.de'
+                }),
+                opacity: 0.65
+            })
+        ],
+        overlays: [popupOverlay],
+        view: new ol.View({
+            center: ol.proj.fromLonLat([-47.882778, -15.793889]),
+            zoom: 15
+        }),
+        controls: []
+    });
+
+    const circleSource = new ol.source.Vector();
+    const circleLayer = new ol.layer.Vector({
+        source: circleSource,
+        style: new ol.style.Style({
+            fill: new ol.style.Fill({ color: 'rgba(0, 116, 217, 0.15)' }),
+            stroke: new ol.style.Stroke({ color: '#0074D9', width: 1 })
+        })
+    });
+    map.addLayer(circleLayer);
+
+    let paradasOverlays = [];
+
+    function buscarParadasProximas(lat, lng) {
+        paradasOverlays.forEach(overlay => map.removeOverlay(overlay));
+        paradasOverlays = [];
+
+        const query = `[out:json];node["highway"="bus_stop"](around:2000, ${lat}, ${lng});out;`;
+        const url = "https://overpass-api.de/api/interpreter?data=" + encodeURIComponent(query);
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                data.elements.forEach(element => {
+                    const el = document.createElement('div');
+                    el.className = 'parada-icon';
+                    el.innerHTML = '🚌';
+
+                    const nomeParada = element.tags.name || "Parada de Ônibus";
+                    el.onclick = (e) => {
+                        e.stopPropagation();
+                        content.innerHTML = `<b>${nomeParada}</b><br>Toque para ver linhas e horários`;
+                        popupOverlay.setPosition(ol.proj.fromLonLat([element.lon, element.lat]));
+                    };
+
+                    const overlay = new ol.Overlay({
+                        position: ol.proj.fromLonLat([element.lon, element.lat]),
+                        positioning: 'center-center',
+                        element: el,
+                        stopEvent: true
+                    });
+                    map.addOverlay(overlay);
+                    paradasOverlays.push(overlay);
+                });
+            });
+    }
+
+    if ("geolocation" in navigator) {
+        setTimeout(() => {
+            navigator.geolocation.getCurrentPosition(
+                position => {
+                    const lat = position.coords.latitude;
+                    const lng = position.coords.longitude;
+                    const accuracy = position.coords.accuracy;
+                    const coords = ol.proj.fromLonLat([lng, lat]);
+
+                    map.getView().setCenter(coords);
+                    map.getView().setZoom(18);
+
+                    circleSource.clear();
+                    const circleFeature = new ol.Feature(new ol.geom.Circle(coords, accuracy));
+                    circleSource.addFeature(circleFeature);
+
+                    const userEl = document.createElement('div');
+                    userEl.className = 'user-dot';
+
+                    userEl.onclick = (e) => {
+                        e.stopPropagation();
+                        content.innerHTML = "<b>Você está aqui</b>";
+                        popupOverlay.setPosition(coords);
+                    };
+
+                    const userOverlay = new ol.Overlay({
+                        position: coords,
+                        positioning: 'center-center',
+                        element: userEl,
+                        stopEvent: true
+                    });
+                    map.addOverlay(userOverlay);
+
+                    content.innerHTML = "<b>Você está aqui</b>";
+                    popupOverlay.setPosition(coords);
+
+                    buscarParadasProximas(lat, lng);
+                },
+                error => {
+                    buscarParadasProximas(-15.793889, -47.882778);
+                },
+                { enableHighAccuracy: true }
+            );
+        }, 500);
+    } else {
+        buscarParadasProximas(-15.793889, -47.882778);
+    }
+</script>
+</body>
+</html>

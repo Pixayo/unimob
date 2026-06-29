@@ -17,7 +17,6 @@ class SceneFactory {
         String stylesheet = "css/style.css";
 
         try {
-            // Força a busca pelo caminho absoluto dentro de resources se necessário
             String path = filename.startsWith("/") ? filename : "/github/com/pixayo/unimob/view/" + filename;
             URL fxmlUrl = SceneFactory.class.getResource(path);
 
