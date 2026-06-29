@@ -15,6 +15,7 @@
     -fx-background-color: -bg1;
     -fx-background-insets: 0;
     -fx-background-radius: 0;
+    -fx-cursor: hand;
 }
 
 #footer .button.selected {
