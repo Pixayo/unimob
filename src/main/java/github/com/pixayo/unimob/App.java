@@ -13,9 +13,6 @@ public class App extends Application {
     public void start(Stage stage) throws IOException {
         SceneManager sceneManager = new SceneManager(stage, SceneName.TELA_FAVORITOS);
 
-        // sceneManager.addScene(SceneName.NOME_TELA);
-        // ...
-
         stage.setTitle("Unimob");
         stage.setMinWidth(250);
         stage.setMinHeight(250);

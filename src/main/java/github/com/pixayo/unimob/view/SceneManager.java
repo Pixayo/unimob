@@ -11,29 +11,27 @@ import java.util.Map;
 
 /**
  * Gerenciador central de telas (scenes).
- * <p>
- * Esta classe é responsável por armazenar, alterar e criar (via {@link SceneFactory})
- * as telas exibidas em um {@link Stage} principal.
- * </p>
  */
 public class SceneManager {
+
+    private static SceneManager instance;
 
     private final Stage stage;
     private final SceneName mainScene;
     private final Map<SceneName, Scene> scenes = new HashMap<>();
     private final Deque<SceneName> previousScenes = new ArrayDeque<>();
 
-    /**
-     * Constrói o gerenciador e registra a tela principal.
-     *
-     * @param stage     o palco JavaFX principal da aplicação.
-     * @param mainScene o identificador da tela que será definida como inicial.
-     */
     public SceneManager(Stage stage, SceneName mainScene) {
+        instance = this;
         this.stage = stage;
         this.mainScene = mainScene;
         addScene(mainScene);
         displayScene(mainScene);
+    }
+
+    // ---> MÉTODO NOVO: Puxa o gerenciador sem dar erro
+    public static SceneManager getInstance() {
+        return instance;
     }
 
     public boolean displayScene(SceneName name) {

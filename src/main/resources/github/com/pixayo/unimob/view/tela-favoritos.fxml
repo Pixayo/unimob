@@ -3,39 +3,103 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
+<?import javafx.geometry.Insets?>
 
-<StackPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.com.pixayo.unimob.controller.TelaFavoritosController">
+<StackPane prefHeight="640.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="github.com.pixayo.unimob.controller.TelaFavoritosController" onMouseMoved="#atualizarTela">
 
     <VBox>
         <HBox fx:id="header" alignment="BOTTOM_CENTER" minHeight="26.0">
-            <HBox spacing="15.0" alignment="TOP_CENTER" translateX="10.0" translateY="-2.0">
-                <Button text="Rotas"
-                        prefWidth="90.0"
-                        prefHeight="35.0"
-                        style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 20;" />
-
-                <Button text="Linhas"
-                        prefWidth="90.0"
-                        prefHeight="35.0"
-                        style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 20;" />
-
-                <Button text="Pontos"
-                        prefWidth="90.0"
-                        prefHeight="35.0"
-                        style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 20;" />
+            <HBox spacing="15.0" alignment="TOP_CENTER" translateY="-2.0">
+                <Button text="Rotas" prefWidth="90.0" prefHeight="35.0" style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 20;" />
+                <Button text="Linhas" prefWidth="90.0" prefHeight="35.0" style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 20;" />
+                <Button text="Pontos" prefWidth="90.0" prefHeight="35.0" style="-fx-background-color: #175898; -fx-text-fill: white; -fx-background-radius: 20;" />
             </HBox>
         </HBox>
 
-        <VBox fx:id="main" alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
-            <Label text="Não há rotas salvas como favorita! Planeje seu deslocamento e salve-o como favorito.Ele estará aqui para consultas futuras" translateX="5.0" translateY="260.0"
-                   wrapText="true"
-                   textAlignment="CENTER"
-                   maxWidth="300.0"
-            />
-            <SVGPath content="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"
-                     fill="dodgerblue" translateX="5.0" translateY="170.0"
-                     scaleX="2.0"
-                     scaleY="2.0"/>
+        <VBox fx:id="main" alignment="TOP_CENTER" VBox.vgrow="ALWAYS" style="-fx-padding: 20 20 0 20;">
+
+            <VBox fx:id="emptyState" alignment="CENTER" spacing="30.0" VBox.vgrow="ALWAYS">
+                <SVGPath content="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" fill="dodgerblue" scaleX="2.0" scaleY="2.0"/>
+                <Label text="Não há rotas salvas como favorita! Planeje seu deslocamento e salve-o como favorito. Ele estará aqui para consultas futuras" wrapText="true" textAlignment="CENTER" maxWidth="300.0" style="-fx-text-fill: #555;"/>
+            </VBox>
+
+            <ScrollPane fx:id="scrollFavoritos" fitToWidth="true" VBox.vgrow="ALWAYS" style="-fx-background-color: transparent; -fx-background-insets: 0; -fx-padding: 0;">
+                <content>
+                    <VBox spacing="10" style="-fx-background-color: transparent; -fx-padding: 5;">
+
+                        <HBox fx:id="card006" alignment="CENTER_LEFT" spacing="5" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-border-color: #e0e0e0; -fx-border-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);">
+                            <Button HBox.hgrow="ALWAYS" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-padding: 8; -fx-cursor: hand; -fx-alignment: center-left;" onAction="#mostrarInfo006">
+                                <graphic>
+                                    <HBox alignment="CENTER_LEFT" spacing="12">
+                                        <Region minWidth="5" maxWidth="5" minHeight="40" style="-fx-background-color: #4CAF50; -fx-background-radius: 5;" />
+                                        <VBox alignment="CENTER_LEFT" spacing="3">
+                                            <HBox alignment="CENTER_LEFT" spacing="6">
+                                                <SVGPath content="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z" style="-fx-fill: #175898;"/>
+                                                <Label text="0.006" minWidth="-Infinity" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #000;" />
+                                            </HBox>
+                                            <Label text="Cruzeiro/Sudoeste/W3 Sul/Octogonal" style="-fx-text-fill: #666; -fx-font-size: 12px;" wrapText="true" />
+                                        </VBox>
+                                    </HBox>
+                                </graphic>
+                            </Button>
+                            <Button style="-fx-background-color: #f5f5f5; -fx-background-radius: 20; -fx-cursor: hand;" onAction="#removerFavorito006">
+                                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                                <graphic>
+                                    <SVGPath content="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" style="-fx-fill: #f1c40f; -fx-stroke: #f1c40f; -fx-stroke-width: 2;"/>
+                                </graphic>
+                            </Button>
+                        </HBox>
+
+                        <HBox fx:id="card082" alignment="CENTER_LEFT" spacing="5" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-border-color: #e0e0e0; -fx-border-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);">
+                            <Button HBox.hgrow="ALWAYS" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-padding: 8; -fx-cursor: hand; -fx-alignment: center-left;" onAction="#mostrarInfo082">
+                                <graphic>
+                                    <HBox alignment="CENTER_LEFT" spacing="12">
+                                        <Region minWidth="5" maxWidth="5" minHeight="40" style="-fx-background-color: #2196F3; -fx-background-radius: 5;" />
+                                        <VBox alignment="CENTER_LEFT" spacing="3">
+                                            <HBox alignment="CENTER_LEFT" spacing="6">
+                                                <SVGPath content="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z" style="-fx-fill: #175898;"/>
+                                                <Label text="0.082" minWidth="-Infinity" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #000;" />
+                                            </HBox>
+                                            <Label text="Núcleo Bandeirante(Metropolitana)" style="-fx-text-fill: #666; -fx-font-size: 12px;" wrapText="true" />
+                                        </VBox>
+                                    </HBox>
+                                </graphic>
+                            </Button>
+                            <Button style="-fx-background-color: #f5f5f5; -fx-background-radius: 20; -fx-cursor: hand;" onAction="#removerFavorito082">
+                                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                                <graphic>
+                                    <SVGPath content="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" style="-fx-fill: #f1c40f; -fx-stroke: #f1c40f; -fx-stroke-width: 2;"/>
+                                </graphic>
+                            </Button>
+                        </HBox>
+
+                        <HBox fx:id="card3213" alignment="CENTER_LEFT" spacing="5" style="-fx-background-color: #ffffff; -fx-background-radius: 10; -fx-border-color: #e0e0e0; -fx-border-radius: 10; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 5, 0, 0, 2);">
+                            <Button HBox.hgrow="ALWAYS" maxWidth="Infinity" style="-fx-background-color: transparent; -fx-padding: 8; -fx-cursor: hand; -fx-alignment: center-left;" onAction="#mostrarInfo3213">
+                                <graphic>
+                                    <HBox alignment="CENTER_LEFT" spacing="12">
+                                        <Region minWidth="5" maxWidth="5" minHeight="40" style="-fx-background-color: #FFEB3B; -fx-background-radius: 5;" />
+                                        <VBox alignment="CENTER_LEFT" spacing="3">
+                                            <HBox alignment="CENTER_LEFT" spacing="6">
+                                                <SVGPath content="M4 16c0 .88.39 1.67 1 2.22V20c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h8v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1.78c.61-.55 1-1.34 1-2.22V6c0-3.5-3.58-4-8-4s-8 .5-8 4v10zm3.5 1c-.83 0-1.5-.67-1.5-1.5S6.67 14 7.5 14s1.5.67 1.5 1.5S8.33 17 7.5 17zm9 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm1.5-6H6V6h12v5z" style="-fx-fill: #175898;"/>
+                                                <Label text="3213" minWidth="-Infinity" style="-fx-font-weight: bold; -fx-font-size: 15px; -fx-text-fill: #000;" />
+                                            </HBox>
+                                            <Label text="Brt Gama/DF-483/Santa Maria Sul" style="-fx-text-fill: #666; -fx-font-size: 12px;" wrapText="true" />
+                                        </VBox>
+                                    </HBox>
+                                </graphic>
+                            </Button>
+                            <Button style="-fx-background-color: #f5f5f5; -fx-background-radius: 20; -fx-cursor: hand;" onAction="#removerFavorito3213">
+                                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
+                                <graphic>
+                                    <SVGPath content="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" style="-fx-fill: #f1c40f; -fx-stroke: #f1c40f; -fx-stroke-width: 2;"/>
+                                </graphic>
+                            </Button>
+                        </HBox>
+
+                    </VBox>
+                </content>
+            </ScrollPane>
+
         </VBox>
 
         <HBox fx:id="footer" prefHeight="60.0">
@@ -44,19 +108,16 @@
                     <SVGPath content="m15-3-6-2.1-4.65 1.8q-0.5 0.2-0.925-0.113T3-4.25v-14q0-0.325 0.188-0.575t0.513-0.375l5.3-1.8 6 2.1 4.65-1.8q0.5-0.2 0.925 0.113t0.425 0.838v14q0 0.325-0.188 0.575T20.3-4.8l-5.3 1.8Zm-1-2.45v-11.7l-4-1.4v11.7l4 1.4Zm2 0 3-1v-11.85l-3 1.15v11.7Zm-11-0.25 3-1.15v-11.7l-3 1v11.85Zm11-11.45v11.7-11.7Zm-8-1.4v11.7-11.7Z" styleClass="icon-svg" />
                 </graphic>
             </Button>
-
             <Button text="Horários" contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" onAction="#abrirTelaHorarios" prefWidth="0" HBox.hgrow="ALWAYS">
                 <graphic>
                     <SVGPath content="M3 10a7 7 0 1114 0 7 7 0 01-14 0zm7-9a9 9 0 100 18 9 9 0 000-18zm1 5a1 1 0 10-2 0v4.032l-2.64 2.2a1 1 0 101.28 1.536l3-2.5A1 1 0 0011 10.5V6z" styleClass="icon-svg" />
                 </graphic>
             </Button>
-
             <Button text="Favoritos" styleClass="selected" contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" onAction="#abrirTelaFavoritos" prefWidth="0" HBox.hgrow="ALWAYS">
                 <graphic>
                     <SVGPath content="M5-3v-16q0-0.825 0.588-1.413T7-21h10q0.825 0 1.413 0.588T19-19v16L12-6 5-3Zm2-3.05 5-2.15 5 2.15v-12.95H7v12.95Zm0-12.95h10-10Z" styleClass="icon-svg" />
                 </graphic>
             </Button>
-
             <Button text="Menu" contentDisplay="TOP" maxHeight="999.0" maxWidth="999.0" onAction="#abrirTelaMenu" prefWidth="0" HBox.hgrow="ALWAYS">
                 <graphic>
                     <SVGPath content="M3-6v-2h18v2H3Zm0-5v-2h18v2H3Zm0-5v-2h18v2H3Z" styleClass="icon-svg" />
